@@ -114,21 +114,21 @@ section navigation bar
   
 section sections
 
-  template pageHeader() {
-  	div[class="page-header"]{
-  		header1{ elements }
-  	}
-  }
+  // template pageHeader() {
+  // 	div[class="page-header"]{
+  // 		header1{ elements }
+  // 	}
+  // }
   template pageHeader2() {
     div[class="page-header"]{
-      header2{ elements }
+      <h2> elements </h2>
     }
   }
-  template pageHeader3() {
-    div[class="page-header"]{
-      header3{ elements }
-    }
-  }
+  // template pageHeader3() {
+  //   div[class="page-header"]{
+  //     header3{ elements }
+  //   }
+  // }
   template small() {
   	<small>elements</small>
   }
