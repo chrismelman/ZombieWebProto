@@ -74,7 +74,7 @@ imports elib/bootstrap/bootstrap
 	      return root();
 	    }
 		navItem{	      
-			navigate root() {"Logged in as " output(securityContext.principal.name)}
+			navigate showUser(securityContext.principal) {"Logged in as " output(securityContext.principal.name)}
 		}
 		navItem{ submitlink logout() { "Log Out" } }
   	}

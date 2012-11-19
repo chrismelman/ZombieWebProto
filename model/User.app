@@ -2,7 +2,7 @@ module model/User
 
 entity User {
 	realname :: String
-	username :: String (id)
+	username :: String (id, name)
 	password :: Secret
 }
 
