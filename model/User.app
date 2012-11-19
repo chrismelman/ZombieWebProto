@@ -10,8 +10,9 @@ init {
 	var testUser := User {
 		realname := "pietje bell"
 		username := "piet"
-		password := ("superpiet" as Secret).digest()
+		password := "superpiet"
 	};
+	testUser.password := testUser.password.digest();
 	testUser.save(); 
 }
 
