@@ -5,3 +5,4 @@
 application.ini
 .dependencies.webdsl
 .saved-but-not-built
+elib/.svn/*
