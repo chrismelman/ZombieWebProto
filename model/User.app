@@ -6,4 +6,13 @@ entity User {
 	password :: Secret
 }
 
+init {
+	var testUser := User {
+		realname := "pietje bell"
+		username := "piet"
+		password := ("superpiet" as Secret).digest()
+	};
+	testUser.save(); 
+}
+
 principal is User with credentials username, password
