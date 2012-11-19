@@ -1,17 +1,15 @@
 module UI/templates
 imports elib/bootstrap/bootstrap
 	define bmain() {
-  	
-	    includeCSS("adapt.css")
-	    includeCSS("bootstrap-extension.css")
 	  	includeCSS("bootstrap/css/bootstrap.css")
-	    includeJS("jquery.js")
+	  	includeCSS("bootstrap/css/bootstrap-responsive.css") 
+	  	includeCSS("bootstrap/css/bootstrap-adapt.css")
+	  	includeJS("jquery.js")
 	    includeJS("bootstrap/js/bootstrap.js")
-	    includeJS("feedback.js")
 		
  
 	    navigationbar    
-	    gridContainer{ 
+	    gridContainer{  
 	      	elements
 		}
  	}
@@ -42,22 +40,22 @@ imports elib/bootstrap/bootstrap
   		}
 	}
 	
-	 page signin() {    
+	page signin() {    
 	 	bmain{      
 	 		gridRow{ 
 	 			gridSpan(12){ login } 
 	 		}    
 	 	}  
-	 }
+	}
 	 
 	 
 	override template login() {
-		var username : Email;
+		var username : String;
 	  	var pass : Secret;
 	
 	    action login(){
 	    	securityContext.principal := null;
-	      	validate(authenticate(username,pass), "Incorrect email address or incorrect password");
+	      	validate(authenticate(username,pass), "Incorrect username or incorrect password");
 	      	return root();
 	    }
       	pageHeader2{ "Sign In" }
@@ -70,16 +68,21 @@ imports elib/bootstrap/bootstrap
 	  	}
   	}
 
-  override template logout() {
-    action logout(){
-      securityContext.principal := null;
-      return root();
-    }
-	  navItem{	      
-	    navigate root() {"Logged in as " output(securityContext.principal.name)}
-	  }
-	  navItem{ submitlink logout() { "Log Out" } }
-  }
+  	override template logout() {
+	    action logout(){
+	      securityContext.principal := null;
+	      return root();
+	    }
+		navItem{	      
+			navigate root() {"Logged in as " output(securityContext.principal.name)}
+		}
+		navItem{ submitlink logout() { "Log Out" } }
+  	}
 
-	 
+
+access control rules {
+	rule page signin(){
+		true
+	}
+}
 
