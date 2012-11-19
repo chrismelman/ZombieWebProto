@@ -6,5 +6,4 @@ entity User {
 	password :: Secret
 }
 
-init {
-}
+derive crud  User
