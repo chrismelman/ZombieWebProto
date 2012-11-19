@@ -2,8 +2,8 @@ module model/User
 
 entity User {
 	realname :: String
-	username :: String (name)
+	username :: String (id)
 	password :: Secret
 }
 
-derive crud  User
+principal is User with credentials username, password
