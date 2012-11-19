@@ -495,6 +495,20 @@ section modal
   }
   
   
+section descriptions
+
+	define description() {
+		<dl>elements</dl>
+	}
+	
+	define descriptionItem(term : String) {
+		<dt> output(term) </dt>
+		<dd> elements </dd>
+	}
   
+  	define horizontalDescription() {
+  		<dl class="dl-horizontal"> elements </dl>
+  	}
+  	
 
 
