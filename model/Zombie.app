@@ -1,7 +1,7 @@
 module model/Zombie
 
 entity Zombie {
-	kind :: ZombieKind
+	kind -> ZombieKind
 	healt :: Int
 	alive :: Bool := healt > 0
 }
