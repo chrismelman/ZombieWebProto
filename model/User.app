@@ -17,4 +17,10 @@ init {
 	testUser.save(); 
 }
 
+var admin := User {
+		realname := "Satan"
+		username := "lucifer"
+		password := "666"
+	}
+	
 principal is User with credentials username, password
