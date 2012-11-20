@@ -15,6 +15,7 @@ page showSurvivor(s : Survivor){
 									descriptionItem("defence") { output(s.defence) }
 									descriptionItem("healt") { output(s.healt) }
 									descriptionItem("max healt") { output(s.maxHealt) }
+									descriptionItem("alive") { output(s.alive) }
 
 								}
 							}

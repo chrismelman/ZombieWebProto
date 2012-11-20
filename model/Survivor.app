@@ -7,6 +7,7 @@ entity Survivor {
 	healt :: Int
 	maxHealt :: Int
 	user -> User
+	alive :: Bool := maxHealt > 0
 	
 	function reset() {
 		healt := maxHealt;
