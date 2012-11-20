@@ -22,6 +22,9 @@ imports elib/bootstrap/bootstrap
 	  				navItem {
 	  					navigate showSurvivor(securityContext.principal.survivor) { "Survivor" } 
 	  				}
+	  				navItem {
+	  					navigate showZombieKinds() { "Zombies" } 
+	  				}
 	  			}
 	  		}
 	  		pullRight{

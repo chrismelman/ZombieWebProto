@@ -3,7 +3,7 @@ module model/Survivor
 entity Survivor {
 	name :: String (id)
 	attack :: Int
-	deffence :: Int
+	defence :: Int
 	healt :: Int
 	maxHealt :: Int
 	user -> User
@@ -16,7 +16,7 @@ entity Survivor {
 var first := Survivor {
 		name := "thebest"
 		attack := 20
-		deffence := 15
+		defence := 15
 		healt := 100
 		maxHealt := 100
 		user := findUserByUsername("piet")[0]

@@ -12,7 +12,7 @@ page showSurvivor(s : Survivor){
 								horizontalDescription {
 									descriptionItem("name") { output(s.name) }
 									descriptionItem("attack") { output(s.attack) }
-									descriptionItem("deffence") { output(s.deffence) }
+									descriptionItem("defence") { output(s.defence) }
 									descriptionItem("healt") { output(s.healt) }
 									descriptionItem("max healt") { output(s.maxHealt) }
 
