@@ -13,7 +13,8 @@ page showSurvivor(s : Survivor){
 									descriptionItem("name") { output(s.name) }
 									descriptionItem("attack") { output(s.attack) }
 									descriptionItem("deffence") { output(s.deffence) }
-
+									descriptionItem("healt") { output(s.healt) }
+									descriptionItem("max healt") { output(s.maxHealt) }
 
 								}
 							}
