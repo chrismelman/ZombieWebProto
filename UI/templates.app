@@ -17,6 +17,13 @@ imports elib/bootstrap/bootstrap
 	define navigationbar() {    
 	  	navbar{
 	  		navigate root() [class="brand"] { "ZombieWebProto" }
+	  		if(loggedIn()) {
+	  			navItems {
+	  				navItem {
+	  					navigate showSurvivor(securityContext.principal.survivor) { "Survivor" } 
+	  				}
+	  			}
+	  		}
 	  		pullRight{
 	  			navItems{
 	  				signInOut
