@@ -4,6 +4,7 @@ entity User {
 	realname :: String
 	username :: String (id, name)
 	password :: Secret
+	survivor -> Survivor(inverse=Survivor.user)
 }
 
 init {
