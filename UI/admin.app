@@ -1,31 +1,31 @@
 module UI/admin
 
+var currentWave := Wave {
+	name := "current wave"
+	list := List<WaveItem>()
+}
 page admin () {
-	var wave:= List<Zombie>()
-	var test : ZombieKind := ZombieKind.all()[0]
-	action getnewInfo(zk : ZombieKind){
-		replace(info,showZombieKind(test));
-	}
+	
 	bmain{
 		pageHeader2{"Admin"}
 		gridRow(){
 			gridSpan(10, 1){
 				horizontalForm("wave") {
 					gridSpan(4){
-						output(wave)
+						for(item : WaveItem in currentWave.list) {
+							horizontalDescription{
+								descriptionItem(item.kind.name){
+									output(item.nr)
+								}
+							}
+						}
+						submitlink action{currentWave.clear();}[class:="btn btn-primary "]{"clear"}
 					}
 					gridSpan(4){
-						input(test) [onchange := getnewInfo(test)]
-						gridContainer(){
-							placeholder info showZombieKind(test)
-							submitlink action {
-								var newZombie := Zombie {
-									kind := test
-									healt := test.healt
-								};
-								wave.add(newZombie);
-							} {"Add"}
+						for(kind : ZombieKind) {
+							Zombiewaveinput(kind)
 						}
+						submitlink action{}[class:="btn btn-primary "]{"addAll"}
 					}
 				}
 			}
@@ -34,6 +34,20 @@ page admin () {
 	}
 }
 
+template Zombiewaveinput(zk : ZombieKind){
+	var newitem : WaveItem
+	init {
+		newitem := WaveItem {
+			kind := zk
+			nr := 0
+		};
+	}
+	horizontalDescription{
+		descriptionItem(zk.name){
+				input(newitem.nr)
+		}
+	}
+}
 access control rules {
 	rule page admin() {
 		loggedIn() && securityContext.principal.username == "lucifer"

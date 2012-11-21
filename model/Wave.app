@@ -6,6 +6,7 @@ entity WaveItem {
 }
 
 entity Wave {
+	name :: String(id)
 	list -> List<WaveItem>
 	
 	function clear () {
