@@ -6,6 +6,13 @@ entity ZombieKind {
 	defence :: Int
 	healt :: Int
 	image :: URL
+	
+	function makeZombie(): Zombie {
+		return Zombie {
+			healt := healt
+			kind := this
+		};
+	}
 }
 
 var one := ZombieKind {
