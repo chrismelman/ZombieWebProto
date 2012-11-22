@@ -25,6 +25,13 @@ imports elib/bootstrap/bootstrap
 	  				navItem {
 	  					navigate showZombieKinds() { "Zombies" } 
 	  				}
+		  			if(securityContext.principal == admin){
+		  				dropdownInNavbar("Admin"){
+		  					dropdownMenu(){
+		  						dropdownMenuItem(){ navigate buildWave() {"Wave"}}
+		  					}
+		  				}
+		  			}
 	  			}
 	  		}
 	  		pullRight{
