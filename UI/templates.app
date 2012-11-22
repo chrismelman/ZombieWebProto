@@ -28,7 +28,8 @@ imports elib/bootstrap/bootstrap
 		  			if(securityContext.principal == admin){
 		  				dropdownInNavbar("Admin"){
 		  					dropdownMenu(){
-		  						dropdownMenuItem(){ navigate buildWave() {"Wave"}}
+		  						dropdownMenuItem(){ navigate buildWave() {"Wave"} }
+		  						dropdownMenuItem(){ navigate showAllSurvivor() {"Survivors"} }
 		  					}
 		  				}
 		  			}

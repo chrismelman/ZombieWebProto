@@ -33,8 +33,27 @@ page showSurvivor(s : Survivor){
 	}
 }
 
+page showAllSurvivor(){
+	bmain{
+		gridRow(){
+			gridSpan(10){
+				list{
+					for(survivor : Survivor){
+					 listitem{output(survivor.name)}
+					}
+				}
+				
+			}
+		}
+	}
+}
+
 access control rules {
 	rule page showSurvivor(s : Survivor){ 
 		loggedIn() && securityContext.principal == s.user
+	}
+	
+	rule page showAllSurvivor(){ 
+		loggedIn() && securityContext.principal == admin
 	}
 }
