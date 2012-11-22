@@ -5,3 +5,4 @@ imports UI/user
 imports UI/survivor
 imports UI/zombieKind
 imports UI/admin
+imports UI/wave

@@ -23,13 +23,7 @@ define ajax  showZombieKind(zk : ZombieKind) {
 				gridContainer(){
 					gridSpan(5){
 						horizontalForm("Information"){
-							horizontalDescription {
-								descriptionItem("name") { output(zk.name) }
-								descriptionItem("attack") { output(zk.attack) }
-								descriptionItem("defence") { output(zk.defence) }
-								descriptionItem("healt") { output(zk.healt) }
-	
-							}
+							showBasicZombiekindInfo(zk)
 						}
 					}
 					gridSpan(4){
@@ -43,8 +37,21 @@ define ajax  showZombieKind(zk : ZombieKind) {
 	}
 }
 
+ajaxtemplate showBasicZombiekindInfo(zk : ZombieKind){
+	horizontalDescription {
+		descriptionItem("name") { output(zk.name) }
+		descriptionItem("attack") { output(zk.attack) }
+		descriptionItem("defence") { output(zk.defence) }
+		descriptionItem("healt") { output(zk.healt) }
+	}
+}
+
 access control rules {
 	rule  ajaxtemplate showZombieKind(zk : ZombieKind) {
+		loggedIn()
+	}
+	
+	rule  ajaxtemplate showBasicZombiekindInfo(zk : ZombieKind) {
 		loggedIn()
 	}
 	
