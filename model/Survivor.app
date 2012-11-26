@@ -9,18 +9,11 @@ entity Survivor {
 	user -> User
 	alive :: Bool := maxHealt > 0
 	
-	function reset() {
+	function heal() {
 		healt := maxHealt;
 	}
 }
 
-var first := Survivor {
-		name := "thebest"
-		attack := 20
-		defence := 15
-		healt := 100
-		maxHealt := 100
-		user := findUserByUsername("piet")[0]
-	}
+
 
 

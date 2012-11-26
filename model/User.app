@@ -15,6 +15,15 @@ init {
 	};
 	testUser.password := testUser.password.digest();
 	testUser.save(); 
+	var first := Survivor {
+		name := "thebest"
+		attack := 20
+		defence := 15
+		healt := 100
+		maxHealt := 100
+		user := findUserByUsername("piet")[0]
+	};
+	first.save();
 }
 
 var admin := User {
