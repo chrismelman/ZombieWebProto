@@ -12,20 +12,12 @@ page buildWave () {
 		replace(info, showBasicZombiekindInfo(zk));
 	}
 	bmain{
-		pageHeader2{"Admin"}
+		pageHeader2{"Wave Builder"}
 		gridRow(){
 			gridSpan(10, 1){
-				horizontalForm("wave") {
+				horizontalForm("current") {
 					gridRow(){
-						gridSpan(4){
-							for(item : WaveItem in currentWave.list) {
-								horizontalDescription{
-									descriptionItem(item.kind.name){
-										output(item.nr)
-									}
-								}
-							}			
-						}
+						showWave(currentWave)
 						gridSpan(4){
 							controlGroup("kind"){
 								input(zk) [onchange := getnewInfo(zk), class :="input-small"]
@@ -47,15 +39,25 @@ page buildWave () {
 								submitlink action{ if(nr > 0) { currentWave.add(WaveItem { kind := zk nr := nr}) ;}}[class:="btn btn-primary "]{"Add"}
 							}
 						}
-						
 					}
 				}
-				
 			}
 		}
-		
 	}
 }
+
+define template showWave(wave : Wave) {
+	gridSpan(4){
+		for(item : WaveItem in wave.list) {
+			horizontalDescription{
+				descriptionItem(item.kind.name){
+					output(item.nr)
+				}
+			}
+		}			
+	}
+}
+
 
 access control rules {
 	rule page buildWave() {

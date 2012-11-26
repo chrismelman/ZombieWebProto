@@ -15,8 +15,11 @@ page showSurvivor(s : Survivor){
 									descriptionItem("defence") { output(s.defence) }
 									descriptionItem("healt") { output(s.healt) }
 									descriptionItem("max healt") { output(s.maxHealt) }
-									descriptionItem("alive") { output(s.alive) }
+									descriptionItem("alive") { output(s.alive.toString()) }
 
+								}
+								if(s.lastAttack != null || s.lastAttack != "") {
+									controlGroup("lastAttack"){rawoutput(s.lastAttack)}
 								}
 							}
 						}
