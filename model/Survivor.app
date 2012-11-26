@@ -2,33 +2,38 @@ module model/Survivor
 
 entity Survivor {
 	name :: String (id)
-	attack :: Int
-	defence :: Int
-	healt :: Int
-	maxHealt :: Int
+	attack :: Float
+	defence :: Float
+	healt :: Float
+	maxHealt :: Float
 	user -> User
-	alive :: Bool := maxHealt > 0
+	alive :: Bool := healt > 0.0
 	lastAttack :: WikiText
 	
 	function heal() {
 		healt := maxHealt;
 	}
 	
-	function attacks(zombies : List<Zombie>) {
+	function attacks(zombies : List<Zombie>) : WikiText {
 		lastAttack := "";
-		while(zombies.length > 0 || alive) {
+		while(zombies.length > 0 && alive) {
 			var head := zombies[0];
-			lastAttack := lastAttack + "<p>" + head.attack(this)+ "</p>";
-			if (!head.alive){
+			var temp := head.attack(this);
+			log(temp);
+			lastAttack := lastAttack + "<p>" + temp + "</p>";
+			if (!head.alive) {
 				zombies.remove(head);
 				if(zombies.length > 0) {
 					head := zombies[0];
 				}
 			}
 			if(zombies.length > 0) {
-				lastAttack := lastAttack + "<p>" + attack(head) + "</p>";
+				var temp := attack(head);
+				log(temp);
+				lastAttack := lastAttack + "<p>" + temp + "</p>";
 			}
 		}
+		return lastAttack;
 	}
 	
 	function attack(z : Zombie) : String {

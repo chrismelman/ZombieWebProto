@@ -2,8 +2,8 @@ module model/Zombie
 
 entity Zombie {
 	kind -> ZombieKind
-	healt :: Int
-	alive :: Bool := healt > 0
+	healt :: Float
+	alive :: Bool := healt > 0.0
 	
 	function attack(sv : Survivor) : String {
 		var dm := (sv.attack / kind.defence);

@@ -17,10 +17,10 @@ init {
 	testUser.save(); 
 	var first := Survivor {
 		name := "thebest"
-		attack := 20
-		defence := 15
-		healt := 100
-		maxHealt := 100
+		attack := 20.0
+		defence := 15.0
+		healt := 100.0
+		maxHealt := 100.0
 		user := findUserByUsername("piet")[0]
 	};
 	first.save();
