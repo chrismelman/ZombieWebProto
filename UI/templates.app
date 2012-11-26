@@ -30,6 +30,8 @@ imports elib/lib
 		  					dropdownMenu(){
 		  						dropdownMenuItem(){ navigate buildWave() {"Wave"} }
 		  						dropdownMenuItem(){ navigate showAllSurvivor() {"Survivors"} }
+		  						dropdownMenuItem(){ navigate attack() {"Attack"} }
+
 		  					}
 		  				}
 		  			}
