@@ -95,10 +95,10 @@ imports elib/lib
 	    action register(){
 	    	validate(user.password == pass, "The two passwords should be equal");
 	    	var survivor := Survivor {
-	    		attack := 50
-	    		defence := 50
-	    		healt := 100
-	    		maxHealt := 100
+	    		attack := 50.0
+	    		defence := 50.0
+	    		healt := 100.0
+	    		maxHealt := 100.0
 	    		name := user.realname
 	    		user := user
 	    	};

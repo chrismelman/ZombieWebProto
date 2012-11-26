@@ -2,8 +2,10 @@ module UI/admin
 
 page attack(){
 	var sv := Survivor.all()[0]
+	var log : WikiText
 	action attack(sv : Survivor) {
-		sv.attacks(currentWave.makeZombieList());
+		log := sv.attacks(currentWave.makeZombieList());
+		replace(logholder, showLog(log));
 	}
 	bmain{
 		pageHeader2{"Wave Builder"}
@@ -18,8 +20,9 @@ page attack(){
 							}
 						}
 					}
+					placeholder logholder showLog("" as WikiText )
 					formActions {
-						submit attack(sv)[class:="btn btn-danger"] {iFire()}
+						submitlink attack(sv)[class:="btn btn-danger"] {iFire()}
 					}
 				}
 			}
@@ -27,8 +30,23 @@ page attack(){
 	}
 }
 
+
+define ajax template showLog(log : WikiText) {
+	if(log != "") {
+		gridRow{
+			well{
+				rawoutput(log)
+			}
+		}
+	}
+}
+
 access control rules {
 	rule page attack() {
+		loggedIn() && securityContext.principal == admin
+	}
+	
+	rule ajaxtemplate showLog(log : WikiText) {
 		loggedIn() && securityContext.principal == admin
 	}
 }
