@@ -52,7 +52,7 @@ imports elib/lib
 			   		navigate signin() { "Sign In" } 
         		}
         		navItem{
-    	    		// navigate registerUser() { "Sign Up" }
+    	    		navigate registerUser() { "Sign Up" }
         		}
 			}
   		}
@@ -85,6 +85,43 @@ imports elib/lib
 			}
 	  	}
   	}
+  	
+  	page registerUser() {
+  		var user := User{}
+	  	var pass : Secret;
+	
+	    action register(){
+	    	validate(user.password == pass, "The two passwords should be equal");
+	    	var survivor := Survivor {
+	    		attack := 50
+	    		defence := 50
+	    		healt := 100
+	    		maxHealt := 100
+	    		name := user.realname
+	    		user := user
+	    	};
+	    	user.password := user.password.digest();
+	    	user.save();
+	    	return signin();
+	    }
+	    bmain{      
+	 		gridRow{ 
+	 			gridSpan(12){ 
+	 				pageHeader2{ "Sign Up" }
+				  	horizontalForm{
+				  		controlGroup("name")	{ input(user.realname)}
+						controlGroup("username") { input(user.username) }
+					    controlGroup("Password") { input(user.password) }
+					    controlGroup("Control Password") { input(pass) }
+			
+						formActions {
+							submitlink register() [class="btn btn-primary"] { "Register" } " "
+						}
+				  	}
+	 			} 
+	 		}    
+	 	}  
+  	}
 
   	override template logout() {
 	    action logout(){
@@ -99,7 +136,11 @@ imports elib/lib
 
 
 access control rules {
-	rule page signin(){
+	rule page signin() {
+		true
+	}
+	
+	rule page registerUser() {
 		true
 	}
 }

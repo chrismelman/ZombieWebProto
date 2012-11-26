@@ -1,8 +1,8 @@
 module model/User
 
 entity User {
-	realname :: String
-	username :: String (id, name)
+	realname :: String( validate(this.realname.length() >= 5, "name should be atleast 5 long"))
+	username :: String (id, name, validate(this.username.length() >= 5, "name should be atleast 5 long"))
 	password :: Secret
 	survivor -> Survivor(inverse=Survivor.user)
 }
