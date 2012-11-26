@@ -1,5 +1,5 @@
 module UI/templates
-imports elib/bootstrap/bootstrap
+imports elib/lib
 	define bmain() {
 	  	includeCSS("bootstrap/css/bootstrap.css")
 	  	includeCSS("bootstrap/css/bootstrap-responsive.css") 
