@@ -18,17 +18,17 @@ entity ZombieKind {
 init {
 	var one := ZombieKind {
 		sortname := "losers"
-		attack := 2.0
-		defence := 2.0
+		attack := 20.0
+		defence := 20.0
 		healt := 10.0
 		image := "http://warzcentral.com/wp-content/uploads/2012/11/ZOTDsubmission.jpg"
 	};
 
 	var two := ZombieKind {
 		sortname := "fatZombies"
-		attack := 1.0
-		defence := 10.0
-		healt := 20.0
+		attack := 10.0
+		defence := 100.0
+		healt := 120.0
 		image := "http://static.tvtropes.org/pmwiki/pub/images/fat_zombie_boomer.jpg"
 	};
 	one.save();
