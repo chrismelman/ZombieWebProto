@@ -1,4 +1,4 @@
 ZombieWebProto
 ==============
 
-A ProtoType App
+This is the initial startup for Project Z
